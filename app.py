@@ -1,6 +1,12 @@
+import os
 import streamlit as st
 from google import genai
 
+# Secrets se API Key lein
+api_key = st.secrets.get("GEMINI_API_KEY") or os.environ.get("GEMINI_API_KEY")
+
+# Client ko seedhe api_key provide karein
+client = genai.Client(api_key=api_key)
 # Secrets se API key lena
 api_key = st.secrets.get("GEMINI_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
 
