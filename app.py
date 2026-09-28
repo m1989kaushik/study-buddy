@@ -34,8 +34,8 @@ if st.button("सॉल्यूशन दिखाओ 🚀"):
         st.error("कृपया कोड में अपनी असली Gemini API Key डालें!")
     else:
         with st.spinner("AI शिक्षक हल तैयार कर रहा है..."):
-            client = genai.Client(api_key=API_KEY)
-            
+            response = models.generate_content(contents)
+            st.write(response.text)
             prompt = f"""
             You are an expert CBSE/State board tutor for {std_class} teaching {subject}.
             Analyze the provided question: "{user_question}".
