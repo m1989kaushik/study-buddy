@@ -4,7 +4,8 @@ import google.generativeai as genai
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-flash")
 # Client initialize karna
-client = genai.Client(api_key=api_key)
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
 st.set_page_config(page_title="AI Study Buddy", layout="centered")
 
 st.title("📚 AI Doubt Solver (Class 9-12)")
