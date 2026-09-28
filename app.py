@@ -1,20 +1,12 @@
+import os
 import streamlit as st
 from google import genai
 
-# Sirf ek key pass karein
-client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-
-# Secrets se API Key lein
-api_key = st.secrets.get("GEMINI_API_KEY") or os.environ.get("GEMINI_API_KEY")
-
-# Client ko seedhe api_key provide karein
-client = genai.Client(api_key=api_key)
-# Secrets se API key lena
-api_key = st.secrets.get("GEMINI_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
+# Secrets se API Key nikalna
+api_key = st.secrets["GEMINI_API_KEY"]
 
 # Client initialize karna
 client = genai.Client(api_key=api_key)
-
 st.set_page_config(page_title="AI Study Buddy", layout="centered")
 
 st.title("📚 AI Doubt Solver (Class 9-12)")
