@@ -1,10 +1,8 @@
 import os
 import streamlit as st
 from google import genai
-
 # Secrets se API Key nikalna
 api_key = st.secrets["GEMINI_API_KEY"]
-
 # Client initialize karna
 client = genai.Client(api_key=api_key)
 st.set_page_config(page_title="AI Study Buddy", layout="centered")
