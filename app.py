@@ -1,6 +1,11 @@
 import streamlit as st
 from google import genai
-from PIL import Image
+
+# Secrets se API key lena
+api_key = st.secrets.get("GEMINI_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
+
+# Client initialize karna
+client = genai.Client(api_key=api_key)
 
 st.set_page_config(page_title="AI Study Buddy", layout="centered")
 
