@@ -46,10 +46,10 @@ if st.button("सॉल्यूशन दिखाओ 🚀"):
             """
 
             contents = [prompt]
-            if uploaded_file:
+        if uploaded_file:
             contents.append(img)
 
-            response = model.generate_content(contents)
+        response = model.generate_content(contents)
 
-            st.success("समाधान:")
-            st.markdown(response.text)
+        st.success("समाधान:")
+        st.markdown(response.text)
