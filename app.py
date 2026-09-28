@@ -34,26 +34,22 @@ if st.button("सॉल्यूशन दिखाओ 🚀"):
         st.error("कृपया कोड में अपनी असली Gemini API Key डालें!")
     else:
         with st.spinner("AI शिक्षक हल तैयार कर रहा है..."):
-            prompt = f"""
-            You are an expert CBSE/State board tutor for {std_class} teaching {subject}.
-            Solve the user's doubt step-by-step with clear explanations.
-            """
-            # contents me prompt aur user ka input pass karein
-            response = model.generate_content([prompt, user_question])
-            st.write(response.text)
-                      
-            Analyze the provided question: "{user_question}".
-            Rules:
-            1. Language: Simple Hinglish (Hindi + English).
-            2. Steps: Clear, step-by-step exam-oriented solution.
-            3. Highlight key formulas and common mistakes students make.
-            """
-            
-            contents = [prompt]
-            if uploaded_file:
-                contents.append(img)
-                
-            response = models.generate_content(contents)
-            
-            st.success("✅ समाधान:")
-            st.markdown(response.text)
+        prompt = f"""
+        You are an expert CBSE/State board tutor for {std_class} teaching {subject}.
+        Solve the user's doubt step-by-step with clear explanations.
+
+        Analyze the provided question: "{user_question}".
+        Rules:
+        1. Language: Simple Hinglish (Hindi + English).
+        2. Steps: Clear, step-by-step exam-oriented solution.
+        3. Highlight key formulas and common mistakes students make.
+        """
+
+        contents = [prompt]
+        if uploaded_file:
+            contents.append(img)
+
+        response = model.generate_content(contents)
+
+        st.success("समाधान:")
+        st.markdown(response.text)
