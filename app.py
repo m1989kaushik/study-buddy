@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import google.generativeai as genai
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
 # Client initialize karna
 genai.configure(api_key="AQ.Ab8RN6L-3Hs0RHSccGHdmoPUjbISldGj0ikv_p68KvnLWUG2cg")
 model = genai.GenerativeModel("gemini-1.5-flash")
