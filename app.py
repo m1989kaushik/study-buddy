@@ -1,8 +1,8 @@
 import os
 import streamlit as st
-from google import genai
-# Secrets se API Key nikalna
-api_key = st.secrets["GEMINI_API_KEY"]
+from google.generativeai as genai
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+model = genai.GenerativeModel("gemini-1.5-flash")"]
 # Client initialize karna
 client = genai.Client(api_key=api_key)
 st.set_page_config(page_title="AI Study Buddy", layout="centered")
@@ -48,10 +48,7 @@ if st.button("सॉल्यूशन दिखाओ 🚀"):
             if uploaded_file:
                 contents.append(img)
                 
-            response = client.models.generate_content(
-                model='gemini-1.5-flash',
-                contents=contents
-            )
+            response = models.generate_content(contents)
             
             st.success("✅ समाधान:")
             st.markdown(response.text)
