@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from google.generativeai as genai
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")"]
+model = genai.GenerativeModel("gemini-1.5-flash")
 # Client initialize karna
 client = genai.Client(api_key=api_key)
 st.set_page_config(page_title="AI Study Buddy", layout="centered")
