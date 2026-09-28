@@ -34,10 +34,14 @@ if st.button("सॉल्यूशन दिखाओ 🚀"):
         st.error("कृपया कोड में अपनी असली Gemini API Key डालें!")
     else:
         with st.spinner("AI शिक्षक हल तैयार कर रहा है..."):
-            response = model.generate_content(contents)
-            st.write(response.text)
             prompt = f"""
             You are an expert CBSE/State board tutor for {std_class} teaching {subject}.
+            Solve the user's doubt step-by-step with clear explanations.
+            """
+            # contents me prompt aur user ka input pass karein
+            response = model.generate_content([prompt, user_question])
+            st.write(response.text)
+                      
             Analyze the provided question: "{user_question}".
             Rules:
             1. Language: Simple Hinglish (Hindi + English).
